@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2022 at 07:04 PM
+-- Generation Time: Mar 12, 2022 at 11:33 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -37,11 +37,11 @@ CREATE TABLE `categoryrecord` (
 --
 
 INSERT INTO `categoryrecord` (`categoryID`, `categoryName`) VALUES
-('CTGRYPRD-9ZSJH3VO', 'Romper'),
-('CTGRYPRD-H7N9PKR6', 'Jumpsuit'),
-('CTGRYPRD-P5E5G35S', 'Bottom'),
-('CTGRYPRD-Y6N2DS70', 'Dress'),
-('CTGRYPRD-ZNCIRE9C', 'Top');
+('CTGRYPRD-0Q4FD9GJ', 'Dress'),
+('CTGRYPRD-AYHYLYX3', 'Romper'),
+('CTGRYPRD-S518K49D', 'Bottom'),
+('CTGRYPRD-V7H2L68R', 'Jumpsuit'),
+('CTGRYPRD-XO6Z3O5F', 'Top');
 
 -- --------------------------------------------------------
 
@@ -55,6 +55,7 @@ CREATE TABLE `productrecord` (
   `productCategory` varchar(50) NOT NULL,
   `productCondition` varchar(50) NOT NULL,
   `productQuantity` int(20) NOT NULL,
+  `productImage` varchar(50) NOT NULL,
   `DateTime` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -62,27 +63,30 @@ CREATE TABLE `productrecord` (
 -- Dumping data for table `productrecord`
 --
 
-INSERT INTO `productrecord` (`productId`, `productName`, `productCategory`, `productCondition`, `productQuantity`, `DateTime`) VALUES
-('PRD-22T3ZHW9', 'Camo Pants', 'Bottom', 'Good', 20, '2022-02-27T11:42'),
-('PRD-2P9S16M7', 'Blue Lounge Pants ', 'Bottom', 'Good', 225, '2021-11-09T13:49'),
-('PRD-2TC35DBP', 'Skater Skirt', 'Bottom', 'Good', 67, '2021-09-06T23:53'),
-('PRD-3ZSSSHKH', 'Black Jumpsuit with Gold Details', 'Jumpsuit', 'Good', 0, '2021-12-08T18:41'),
-('PRD-48ASLHFN', 'White Off Shoulder Romper', 'Romper', 'Good', 60, '2021-11-04T16:46'),
-('PRD-AWFSB3LK', 'Cat Print Polo', 'Top', 'Good', 75, '2022-01-04T11:48'),
-('PRD-BQ3O25EK', 'Brown Paperbag Pants', 'Bottom', 'Good', 400, '2021-09-27T15:26'),
-('PRD-EHTQEG7X', 'Khaki Puff Sleeve Dress', 'Dress', 'Good', 150, '2021-08-16T23:46'),
-('PRD-GJ3XVBMO', 'Leather Paperbag Pants ', 'Bottom', 'Good', 300, '2021-12-08T16:43'),
-('PRD-GNKWYN3P', 'Black Flare Pants', 'Bottom', 'Bad', 4, '2020-09-27T13:37'),
-('PRD-HXSPUJ6J', 'Tutu Skirt', 'Bottom', 'Good', 100, '2020-07-27T14:41'),
-('PRD-KXKBSRMZ', 'Pink Dress with Slit', 'Dress', 'Good', 95, '2021-12-21T23:44'),
-('PRD-L7S48ZGT', 'Plaid Trousers ', 'Bottom', 'Good', 78, '2021-11-14T14:52'),
-('PRD-P6I72LZB', 'Oversized Floral Polo', 'Top', 'Good', 90, '2021-10-11T15:47'),
-('PRD-WYM7OIJW', 'Camo Pants', 'Bottom', 'Bad', 12, '2022-02-07T11:41'),
-('PRD-X4VBE6KM', 'Black Jumpsuit with Pearl', 'Jumpsuit', 'Good', 200, '2022-02-09T17:49'),
-('PRD-XAQRJ7KB', 'Eyelet Mini Dress', 'Dress', 'Good', 450, '2022-02-08T15:49'),
-('PRD-XN4PVXV4', 'Red Polka Shirt', 'Top', 'Bad', 12, '2020-05-04T16:40'),
-('PRD-Y585C3LQ', 'Purple Ribbed Long Sleeves', 'Top', 'Good', 150, '2020-02-27T23:40'),
-('PRD-ZBOKTWIA', 'Silver Satin Dress', 'Dress', 'Good', 450, '2022-01-25T17:44');
+INSERT INTO `productrecord` (`productId`, `productName`, `productCategory`, `productCondition`, `productQuantity`, `productImage`, `DateTime`) VALUES
+('PRD-2WILZHYP', 'Red Romper with Ribbon', 'Romper', 'Good', 70, 'jn762bli_billabong,wg_rdd_sd2.jpg', '2021-12-06T18:44'),
+('PRD-3SRQEDMJ', 'Black Shorts', 'Bottom', 'Good', 88, 'images.jpg', '2022-02-27T18:43'),
+('PRD-5O3R04EQ', 'Black Tennis Skirt', 'Bottom', 'Good', 80, '71+RuNnhrxL__AC_UL1500_.jpg', '2021-09-13T12:27'),
+('PRD-6397CW3F', 'Black Shirt', 'Top', 'Good', 100, 'hmgoepprod.jpg', '2022-03-07T22:24'),
+('PRD-6NJKMMXD', 'Floral Palazzo Pants', 'Bottom', 'Good', 70, 'images_(1).jpg', '2022-02-28T23:37'),
+('PRD-748N4U1O', 'Purple Eyelet Romper', 'Romper', 'Good', 200, '6087ba0c91276.jpg', '2022-02-08T22:28'),
+('PRD-90B33QFH', 'Black Skater Skirt', 'Bottom', 'Good', 200, 'images_(2).jpg', '2022-03-08T12:37'),
+('PRD-911WN6FG', 'Denim Summer Pants', 'Bottom', 'Good', 90, 'summer-pants-1624910460.jpg', '2022-01-11T18:40'),
+('PRD-99NW9KAN', 'Denim shorts', 'Bottom', 'Good', 90, 'hmgoepprod.jpg', '2022-03-06T22:36'),
+('PRD-9UKP7MZ3', 'White and Blue Plaid Shirt', 'Top', 'Good', 95, 'vbe_6333.jpg', '2022-03-07T22:40'),
+('PRD-EB87P24I', 'High Waisted Mom Jeans', 'Bottom', 'Good', 280, 'high-waisted-mom-jeans-in-light-blue.jpg', '2022-03-11T18:35'),
+('PRD-IYZBU4WX', 'Sweatshort', 'Bottom', 'Good', 300, '1590093734-sweatshorts-palace-1590093727.jpg', '2022-02-27T21:31'),
+('PRD-JPQZB2GW', ' Black and White Checkered Polo', 'Top', 'Good', 120, '12d3a687b3286ed9d538e860724eb9a2.jpg', '2022-03-01T11:30'),
+('PRD-MV0F7TRR', 'Blue Wrap-around Romper', 'Romper', 'Good', 250, '3d1bf406b70c2a95bca771431c6e48f3.jpg', '2022-03-11T18:23'),
+('PRD-N32OYWEW', 'Red Shorts', 'Bottom', 'Good', 197, 'fox-kids-baby-2745-4131541-1.jpg', '2022-03-11T18:35'),
+('PRD-OU1PALHC', 'Gray V-neck Shirt', 'Top', 'Bad', 7, '71tfHjpjtcL__AC_UY445_.jpg', '2021-09-25T18:27'),
+('PRD-PK1VOIW3', 'Skinny Jeans', 'Bottom', 'Good', 95, '-1117Wx1400H-440794191-mediumblue-MODEL.jpg', '2022-02-08T19:29'),
+('PRD-QKKRLURX', 'Gray V-neck Shirt', 'Top', 'Good', 93, '71tfHjpjtcL__AC_UY445_.jpg', '2021-09-25T18:28'),
+('PRD-QRVRYP75', 'Straight Cut Jeans', 'Bottom', 'Good', 500, '1620985519-app005prod.jpg', '2022-01-05T20:36'),
+('PRD-R3S4MBEQ', 'Strawberry Puff Dress', 'Dress', 'Good', 500, '18STRAWBERRYDRESS-4-mobileMasterAt3x.jpg', '2022-01-11T10:29'),
+('PRD-RKJHRKTD', 'White 3/4 Dress', 'Dress', 'Good', 600, 'sipsip-3d750d4ed7154222a2dd1722ed3f71d2.jpg', '2021-12-14T18:46'),
+('PRD-YAGTO4MW', 'Gray Puffy Long Sleeves', 'Top', 'Good', 150, '1204506282.jpg', '2022-02-01T22:30'),
+('PRD-YMBM5SI6', 'Red Shorts', 'Bottom', 'Mildly Damaged', 3, 'fox-kids-baby-2745-4131541-1.jpg', '2022-02-20T22:34');
 
 -- --------------------------------------------------------
 
@@ -95,20 +99,17 @@ CREATE TABLE `reqproductrecord` (
   `productId` varchar(50) NOT NULL,
   `reqproductQuantity` int(20) NOT NULL,
   `reqDateTime` datetime NOT NULL,
-  `reqproductStatus` varchar(100) NOT NULL
+  `reqproductStatus` varchar(100) NOT NULL,
+  `approveDateTime` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `reqproductrecord`
 --
 
-INSERT INTO `reqproductrecord` (`reqproductId`, `productId`, `reqproductQuantity`, `reqDateTime`, `reqproductStatus`) VALUES
-('REQPRD-2AK4NHMC', 'PRD-BQ3O25EK', 200, '2022-02-28 01:56:00', 'Rejected'),
-('REQPRD-6YG0XR0T', 'PRD-22T3ZHW9', 14, '2022-02-28 00:00:00', 'Approved'),
-('REQPRD-E9L3W4ZK', 'PRD-22T3ZHW9', 50, '2022-02-28 01:55:00', 'Rejected'),
-('REQPRD-HKZ1YJKZ', 'PRD-2TC35DBP', 50, '2022-02-28 01:54:00', 'Rejected'),
-('REQPRD-R4WK5PBD', 'PRD-3ZSSSHKH', 500, '2022-02-28 01:56:00', 'Approved'),
-('REQPRD-XZTIQV94', 'PRD-22T3ZHW9', 50, '2022-02-28 01:55:00', 'Approved');
+INSERT INTO `reqproductrecord` (`reqproductId`, `productId`, `reqproductQuantity`, `reqDateTime`, `reqproductStatus`, `approveDateTime`) VALUES
+('REQPRD-ALU5M9GF', 'PRD-3XSF35MW', 10, '2022-03-11 17:11:00', 'Approved', '2022-03-11 17:12:00'),
+('REQPRD-WZV7JL2H', 'PRD-3XSF35MW', 80, '2022-03-11 17:12:00', 'Rejected', 'Pending');
 
 -- --------------------------------------------------------
 
