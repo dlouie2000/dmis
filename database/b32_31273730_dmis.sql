@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 12, 2022 at 11:33 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Host: sql209.byethost32.com
+-- Generation Time: Mar 15, 2022 at 05:30 AM
+-- Server version: 10.3.27-MariaDB
+-- PHP Version: 7.2.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dmis-database`
+-- Database: `b32_31273730_dmis`
 --
 
 -- --------------------------------------------------------
@@ -64,15 +65,8 @@ CREATE TABLE `productrecord` (
 --
 
 INSERT INTO `productrecord` (`productId`, `productName`, `productCategory`, `productCondition`, `productQuantity`, `productImage`, `DateTime`) VALUES
-('PRD-2WILZHYP', 'Red Romper with Ribbon', 'Romper', 'Good', 70, 'jn762bli_billabong,wg_rdd_sd2.jpg', '2021-12-06T18:44'),
-('PRD-3SRQEDMJ', 'Black Shorts', 'Bottom', 'Good', 88, 'images.jpg', '2022-02-27T18:43'),
-('PRD-5O3R04EQ', 'Black Tennis Skirt', 'Bottom', 'Good', 80, '71+RuNnhrxL__AC_UL1500_.jpg', '2021-09-13T12:27'),
-('PRD-6397CW3F', 'Black Shirt', 'Top', 'Good', 100, 'hmgoepprod.jpg', '2022-03-07T22:24'),
-('PRD-6NJKMMXD', 'Floral Palazzo Pants', 'Bottom', 'Good', 70, 'images_(1).jpg', '2022-02-28T23:37'),
-('PRD-748N4U1O', 'Purple Eyelet Romper', 'Romper', 'Good', 200, '6087ba0c91276.jpg', '2022-02-08T22:28'),
 ('PRD-90B33QFH', 'Black Skater Skirt', 'Bottom', 'Good', 200, 'images_(2).jpg', '2022-03-08T12:37'),
 ('PRD-911WN6FG', 'Denim Summer Pants', 'Bottom', 'Good', 90, 'summer-pants-1624910460.jpg', '2022-01-11T18:40'),
-('PRD-99NW9KAN', 'Denim shorts', 'Bottom', 'Good', 90, 'hmgoepprod.jpg', '2022-03-06T22:36'),
 ('PRD-9UKP7MZ3', 'White and Blue Plaid Shirt', 'Top', 'Good', 95, 'vbe_6333.jpg', '2022-03-07T22:40'),
 ('PRD-EB87P24I', 'High Waisted Mom Jeans', 'Bottom', 'Good', 280, 'high-waisted-mom-jeans-in-light-blue.jpg', '2022-03-11T18:35'),
 ('PRD-IYZBU4WX', 'Sweatshort', 'Bottom', 'Good', 300, '1590093734-sweatshorts-palace-1590093727.jpg', '2022-02-27T21:31'),
@@ -102,14 +96,6 @@ CREATE TABLE `reqproductrecord` (
   `reqproductStatus` varchar(100) NOT NULL,
   `approveDateTime` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `reqproductrecord`
---
-
-INSERT INTO `reqproductrecord` (`reqproductId`, `productId`, `reqproductQuantity`, `reqDateTime`, `reqproductStatus`, `approveDateTime`) VALUES
-('REQPRD-ALU5M9GF', 'PRD-3XSF35MW', 10, '2022-03-11 17:11:00', 'Approved', '2022-03-11 17:12:00'),
-('REQPRD-WZV7JL2H', 'PRD-3XSF35MW', 80, '2022-03-11 17:12:00', 'Rejected', 'Pending');
 
 -- --------------------------------------------------------
 
