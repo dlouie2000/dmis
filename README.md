@@ -1,9 +1,9 @@
 # dmis
-Doodles Manila: Inventory Management System
-Contributors:
-Kathrine Mikaela P. Aquino
-Angela Nicole C. Barbon
-Marianne Kirstine L. Gimena
-Nathaniel L. Mercado
-Isaiah M. Lumod
-David Louie S. Tapia
+Doodles Manila: Inventory Management System <br>
+Contributors: <br>
+Kathrine Mikaela P. Aquino <br>
+Angela Nicole C. Barbon <br> 
+Marianne Kirstine L. Gimena <br>
+Nathaniel L. Mercado <br>
+Isaiah M. Lumod <br>
+David Louie S. Tapia <br>
