@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             {
                                 extend: 'excel',
                                 className: "btn btn-success",
-                                text: "Dowload Excel",
+                                text: "Export Excel",
 								title: "DoodlesManila-InboundProducts",
 								exportOptions: {
        								columns: [0, 1, 2, 3, 4, 6],
@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             {
                                 extend: 'pdf',
                                 className: "btn btn-danger",
-                                text: "Dowload PDF",
+                                text: "Export PDF",
 								title: "DoodlesManila-InboundProducts",
 								exportOptions: {
        								columns: [0, 1, 2, 3, 4, 6],
