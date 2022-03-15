@@ -72,11 +72,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  color: #7386D5;
 	  background: #fff;
   }
-  #sidebar ul li.active>a,
+  /* #sidebar ul li.active>a,
   a[aria-expanded="true"] {
 	  color: #fff;
-	  /* background: #fda4ba; */
-  }
+	
+  } */
   
   a[data-toggle="collapse"]{
 	  position: relative;

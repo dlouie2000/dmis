@@ -9,12 +9,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 		<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 		<script src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
+
+		<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 		
 		<!-- Product Table Page -->
 		<script>
 			$(document).ready( function () {
     				$('#product_table').DataTable({
 					"ajax": "<?php echo base_url('main/getProducts');?>", 
+					<?php if($this->session->userdata('level')==='2'):?>
+						<?php elseif($this->session->userdata('level')==='1'):?>
+						dom: 'Bfrtip',
+                        buttons: [
+                            {
+                                extend: 'excel',
+                                className: "btn btn-success",
+                                text: "Dowload Excel",
+								title: "DoodlesManila-InboundProducts",
+								exportOptions: {
+       								columns: [0, 1, 2, 3, 4, 6],
+								}
+                            },
+                            {
+                                extend: 'pdf',
+                                className: "btn btn-danger",
+                                text: "Dowload PDF",
+								title: "DoodlesManila-InboundProducts",
+								exportOptions: {
+       								columns: [0, 1, 2, 3, 4, 6],
+								}
+                            },
+							{
+                                extend: 'copy',
+                                className: "btn btn-primary",
+                                text: "Copy",
+								exportOptions: {
+       								columns: [0, 1, 2, 3, 4, 6],
+								}
+                            },
+							{
+                                extend: 'print',
+                                className: "btn btn-info",
+                                text: "Print",
+								exportOptions: {
+       								columns: [0, 1, 2, 3, 4, 6],
+								}
+                            },
+							
+                        ],
+						<?php endif;?>
 					 	columns : [
 						{ "data" : 'productId'},
 						{ "data" : 'productName' },

@@ -67,9 +67,11 @@ class Main extends CI_Controller
         $this->form_validation->set_rules('reqproductQuantityForm', 'Product Quantity' ,'required|max_length[30]');
         $this->form_validation->set_rules('reqDateTimeForm', 'Date' ,'required|max_length[30]');
         
+        $reqId = "REQPRD-".$this->randStrGen(2,7);
+
         //create request form
         $data['document'] = (object)$postData = array(
-            'reqproductId' => "REQPRD-".$this->randStrGen(2,7),
+            'reqproductId' => $reqId,
             'productId' => $this->input->post('productIdField'),
             'reqproductQuantity' => $this->input->post('reqproductQuantityForm'),
             'reqDateTime' => $this->input->post('reqDateTimeForm'),
@@ -79,7 +81,35 @@ class Main extends CI_Controller
 
         if($this->form_validation->run() === true){ 
             if($this->reqproduct_model->createrequest($postData)){
-               $this->session->set_flashdata('success','Add Success');
+                
+                //send email prompt
+                $this->load->library('email');            
+                $config = array();
+                $config['protocol'] = 'smtp';
+                $config['smtp_host'] = 'ssl://smtp.gmail.com';
+                $config['smtp_user'] = 'doodlesmanilainvsys@gmail.com';
+                $config['smtp_pass'] = 'doodlesmanila12345';
+                $config['smtp_port'] = 465;
+                $config['crlf'] = '\r\n';
+                $config['newline'] = '\r\n';
+                $config['mailtype'] = "html";
+                $config['smtp_timeout'] = '60';
+        
+                $this->email->initialize($config);
+                $this->email->set_newline("\r\n");  
+        
+                $this->email->to('isaiahlumod1827@gmail.com');
+                $this->email->from('doodlesmanilainvsys@gmail.com');
+                $this->email->subject('REQUEST PRODUCT ID: ' . $reqId);
+                $emailInfo['reqId'] = $reqId;
+                $emailInfo['createDate'] = date('Y-m-d');
+                $emailInfo['content'] = $this->db->select('*')->where('reqproductId',$reqId)->get('reqproductrecord')->result();
+                $body = $this->load->view('EmailTemplates/RequestEmailTemp.php',$emailInfo,TRUE);
+                $this->email->message($body);
+        
+                $this->email->send();
+
+                $this->session->set_flashdata('success','Add Success');
             }
             else{
                $this->session->set_flashdata('error','Add Failed');
@@ -94,18 +124,48 @@ class Main extends CI_Controller
         }
 	}
 
+
     //approve products page/approve products and error statement wherein user cant exceeds in product stock
     public function approve()
     {
+        $reqId = $this->uri->segment(3);
+
         $data['document'] = (object)$postData = array(
-            'reqproductId' => $this->uri->segment(3),
+            'reqproductId' => $reqId,
             'reqproductStatus' => "Approved", 
             'approveDateTime' => date('Y-m-d H:i:s'), 
         );
 
-
         $status = $this->reqproduct_model->updateReqproductRecord($postData);
+        
         if($status === TRUE){
+            //send email prompt
+            $this->load->library('email');            
+            $config = array();
+            $config['protocol'] = 'smtp';
+            $config['smtp_host'] = 'ssl://smtp.gmail.com';
+            $config['smtp_user'] = 'doodlesmanilainvsys@gmail.com';
+            $config['smtp_pass'] = 'doodlesmanila12345';
+            $config['smtp_port'] = 465;
+            $config['crlf'] = '\r\n';
+            $config['newline'] = '\r\n';
+            $config['mailtype'] = "html";
+            $config['smtp_timeout'] = '60';
+    
+            $this->email->initialize($config);
+            $this->email->set_newline("\r\n");  
+    
+            $this->email->to('isaiahlumod1827@gmail.com');
+            $this->email->from('doodlesmanilainvsys@gmail.com');
+            $this->email->subject('APPROVED REQUEST PRODUCT ID: ' . $reqId);
+            $emailInfo['reqId'] = $reqId;
+            $emailInfo['createDate'] = date('Y-m-d');
+            $emailInfo['content'] = $this->db->select('*')->where('reqproductId',$reqId)->get('reqproductrecord')->result();
+            $body = $this->load->view('EmailTemplates/ApproveEmailTemp.php',$emailInfo,TRUE);
+            $this->email->message($body);
+    
+            $this->email->send();
+
             $this->session->set_flashdata('success','Success');             
         }
         else if($status == 'stockError'){
@@ -120,12 +180,40 @@ class Main extends CI_Controller
     //approve products page/reject products
     public function reject()
     {
+        $reqId = $this->uri->segment(3);
+
         $data['document'] = (object)$postData = array(
-            'reqproductId' => $this->uri->segment(3),
+            'reqproductId' => $reqId,
             'reqproductStatus' => "Rejected",   
         );
         
         if($this->reqproduct_model->rejectReqproductRecord($postData)){
+             //send email prompt
+             $this->load->library('email');            
+             $config = array();
+             $config['protocol'] = 'smtp';
+             $config['smtp_host'] = 'ssl://smtp.gmail.com';
+             $config['smtp_user'] = 'doodlesmanilainvsys@gmail.com';
+             $config['smtp_pass'] = 'doodlesmanila12345';
+             $config['smtp_port'] = 465;
+             $config['crlf'] = '\r\n';
+             $config['newline'] = '\r\n';
+             $config['mailtype'] = "html";
+             $config['smtp_timeout'] = '60';
+     
+             $this->email->initialize($config);
+             $this->email->set_newline("\r\n");  
+     
+             $this->email->to('isaiahlumod1827@gmail.com');
+             $this->email->from('doodlesmanilainvsys@gmail.com');
+             $this->email->subject('REJECTED REQUEST PRODUCT ID: ' . $reqId);
+             $emailInfo['reqId'] = $reqId;
+             $emailInfo['createDate'] = date('Y-m-d');
+             $emailInfo['content'] = $this->db->select('*')->where('reqproductId',$reqId)->get('reqproductrecord')->result();
+             $body = $this->load->view('EmailTemplates/RejectEmailTemp.php',$emailInfo,TRUE);
+             $this->email->message($body);
+     
+             $this->email->send();
             $this->session->set_flashdata('error','Request Rejected');             
             }
             else{

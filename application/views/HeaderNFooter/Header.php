@@ -34,7 +34,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
-
+	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/1.0.7/css/responsive.dataTables.min.css"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"/>
+        <link rel="stylesheet" href=https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css/>
+        <link rel="stylesheet" href=https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css/>
 
 </head>
 
