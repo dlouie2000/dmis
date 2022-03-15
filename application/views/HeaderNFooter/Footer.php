@@ -19,6 +19,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 		
+		<!-- Confirmation Messages -->
+		<!-- onclick="return ConfirmDelete()" -->
+
+		<script>
+			function ConfirmDelete(){
+				if (confirm("Are you sure you want to delete?")){
+				return true;
+				}
+				else {
+					return false;
+				}
+			}
+		</script>
+
+		<script>
+			function ConfirmApprove(){
+				if (confirm("Are you sure you want to Approve this request?")){
+				return true;
+				}
+				else {
+					return false;
+				}
+			}
+		</script>
+
+		<script>
+			function ConfirmReject(){
+				if (confirm("Are you sure you want to Reject this request?")){
+				return true;
+				}
+				else {
+					return false;
+				}
+			}
+		</script>
+
+
 		<!-- Product Table Page -->
 		<script>
 			$(document).ready( function () {
@@ -84,9 +121,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   						render: function ( data, type, row ) {
 						var baseurl = '<?php echo base_url('') ?>';
 						<?php if($this->session->userdata('level')==='1'):?>
-    					return '<a href="'+baseurl+'main/edit/'+data+'" ></a> <a href="'+baseurl+'main/delete/'+data+'" class="btn btn-danger" <?php echo (($this->uri->segment(2)) == "edit" ? 'style="display:none;"' : null)?>> Delete</a>';
+    					return '<a href="'+baseurl+'main/edit/'+data+'" ></a> <a href="'+baseurl+'main/delete/'+data+'" class="btn btn-danger" onclick="return ConfirmDelete()" <?php echo (($this->uri->segment(2)) == "edit" ? 'style="display:none;"' : null)?>> Delete</a>';
 						<?php elseif($this->session->userdata('level')==='2'):?>
-							return '<a href="'+baseurl+'main/edit/'+data+'" class="btn btn-primary">Edit</a> <a href="'+baseurl+'main/delete/'+data+'" " <?php echo (($this->uri->segment(2)) == "edit" ? 'style="display:none;"' : null)?>> </a>';
+						return '<a href="'+baseurl+'main/edit/'+data+'" class="btn btn-primary">Edit</a> <a href="'+baseurl+'main/delete/'+data+'" " <?php echo (($this->uri->segment(2)) == "edit" ? 'style="display:none;"' : null)?>> </a>';
 						<?php endif;?>
 						}
 						}
@@ -151,7 +188,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						{ "data" : 'reqproductId',
   						render: function ( data, type, row ) {
 						var baseurl = '<?php echo base_url('') ?>';
-    					return '<a href="'+baseurl+'main/approve/'+data+'" class="btn btn-primary">Approve</a> <a href="'+baseurl+'main/reject/'+data+'" class="btn btn-danger">Reject</a>';
+    					return '<a href="'+baseurl+'main/approve/'+data+'" class="btn btn-primary onclick="return ConfirmApprove()"">Approve</a> <a href="'+baseurl+'main/reject/'+data+'" class="btn btn-danger onclick="return ConfirmReject()"">Reject</a>';
 						}
 						}
 					]
@@ -169,15 +206,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						{ "data" : 'categoryName' },
 						{ "data" : 'categoryID',
 							render: function ( data, type, row ) 
-							{
+							{	
 								var baseurl = '<?php echo base_url('') ?>';
-								return '<a href="'+baseurl+'main/deletecategory/'+data+'" class="btn btn-danger">Delete</a>';
+								return '<a href="'+baseurl+'main/deletecategory/'+data+'" class="btn btn-danger" onclick="return ConfirmDelete()" ">Delete</a>';
 							}
 						}
 					]
 				} );
 			} );
 		</script>
+
+		
 
 		<!-- Top Requested Product Table -->
 		<script>
@@ -233,7 +272,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						type: 'column'
 					},
 					title: {
-						text: 'Total Products per Year'
+						text: 'Total Inbound Products per Year'
 					},
 					xAxis: {
 						categories: 
@@ -274,7 +313,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						type: 'column'
 					},
 					title: {
-						text: 'Total Products per Month'
+						text: 'Total Inbound Products per Month'
 					},
 					xAxis: {
 						categories: 

@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </style>
 
 <div class="Home" style="margin-left: 20px; margin-right: 20px;">
-  <div class="dashBoard card" style ="width:auto; margin-top:30px;">
+  <div class="dashBoard card" style ="width:auto; margin-top:30px;, ">
     <div class="card-header">
     <?php if($this->session->userdata('level')==='1'):?>
       <H3>Good day Admin User!</H3>
@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <?php endif;?>
     </div>
   </div>
-  <div class="notificationBoard card" style=" margin-top: 30px; <?php echo (!empty($notif)? null: 'display: none;') ?>"> 
+  <div class="notificationBoard card" style=" margin-top: 30px; margin-bottom: 30px; <?php echo (!empty($notif)? null: 'display: none;') ?>"> 
     <div class="card-header">
       <H3>Notice</H3>
     </div>
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         echo $list->released;
         }
       ?></b></h1>
-      <label>TOTAL PRODUCTS <br> RELEASED BY <?php echo date('Y')?> </label>
+      <label>TOTAL APPROVED <br> REQUEST BY <?php echo date('Y')?> </label>
     </div>
     <div class="col-sm square">
       <h1><b><?php
@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         echo $list->totNum;
       }
       ?></b></h1>
-      <label>TOTAL NUMBER <br> OF PRODUCTS</label>
+      <label>TOTAL NUMBER <br> OF UNIQUE PRODUCTS</label>
     </div>
   </div>
 </div>

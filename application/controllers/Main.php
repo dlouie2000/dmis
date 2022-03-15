@@ -489,6 +489,15 @@ class Main extends CI_Controller
 
     public function report()
 	{
+
+        $data['notif'] = $this->inventory_model->notification();
+        $data['top'] = $this->reqproduct_model->topRequestedProducts();
+
+        $data['stock'] = $this->dashboard_model->totalStockQuantity();
+        $data['request'] = $this->dashboard_model->requestToBeApproved();
+        $data['released'] = $this->dashboard_model->totalProductsReleased();
+        $data['totNum'] = $this->dashboard_model->totalNumberOfProducts();
+        
         $data['dataYear'] = $this->charts_model->yearlyTotalQuantity();
         $data['year'] = $this->charts_model->getYear();
 
@@ -496,8 +505,9 @@ class Main extends CI_Controller
         $data['month'] = $this->charts_model->getMonth();
         
         $this->load->view('HeaderNFooter/Header');
-		$this->load->view('Pages/report');
+		$this->load->view('Pages/report', $data);
         $this->load->view('HeaderNFooter/Footer', $data);
+        
 	}
 
     public function scan()
