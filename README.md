@@ -1,5 +1,5 @@
-# dmis
-Doodles Manila: Inventory Management System <br>
+# Doodles Manila: Inventory Management System
+
 Contributors: <br>
 Kathrine Mikaela P. Aquino <br>
 Angela Nicole C. Barbon <br> 
