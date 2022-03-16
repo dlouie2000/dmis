@@ -98,7 +98,7 @@ class Main extends CI_Controller
                 $this->email->initialize($config);
                 $this->email->set_newline("\r\n");  
         
-                $this->email->to('isaiahlumod1827@gmail.com');
+                $this->email->to('testingwebsitedoodles@gmail.com');
                 $this->email->from('doodlesmanilainvsys@gmail.com');
                 $this->email->subject('REQUEST PRODUCT ID: ' . $reqId);
                 $emailInfo['reqId'] = $reqId;
@@ -155,7 +155,7 @@ class Main extends CI_Controller
             $this->email->initialize($config);
             $this->email->set_newline("\r\n");  
     
-            $this->email->to('isaiahlumod1827@gmail.com');
+            $this->email->to('testingwebsitedoodles@gmail.com');
             $this->email->from('doodlesmanilainvsys@gmail.com');
             $this->email->subject('APPROVED REQUEST PRODUCT ID: ' . $reqId);
             $emailInfo['reqId'] = $reqId;
@@ -204,7 +204,7 @@ class Main extends CI_Controller
              $this->email->initialize($config);
              $this->email->set_newline("\r\n");  
      
-             $this->email->to('isaiahlumod1827@gmail.com');
+             $this->email->to('testingwebsitedoodles@gmail.com');
              $this->email->from('doodlesmanilainvsys@gmail.com');
              $this->email->subject('REJECTED REQUEST PRODUCT ID: ' . $reqId);
              $emailInfo['reqId'] = $reqId;
